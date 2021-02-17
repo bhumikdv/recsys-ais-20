@@ -1,19 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
-
-## pipeline.py file
-
-
-# In[46]:
-
 
 import pandas as pd
 import numpy as np
 from pathlib import Path
 import time
+from surprise import Dataset
 from surprise.dataset import DatasetAutoFolds
 from surprise.prediction_algorithms.algo_base import AlgoBase
 from surprise.trainset import Trainset
@@ -86,13 +79,9 @@ class pipeline(object):
         """
         model_time = time.time()
         model = self.train(param_model, trainset)
-        model_time = model_time - time.time()
+        model_time = time.time() - model_time
         return model_time, model
-        
-        
 
-
-# In[47]:
 
 
 
